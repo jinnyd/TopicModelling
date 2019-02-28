@@ -34,18 +34,39 @@
   </head>
 
   <body>
+   <!-- place at the bottom of the page -->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="footer-copyright text-center">
+          <a>&copy; Xiaojin Dong, Insight, Jan. 2019, NYC</a>
+          </div>
+    </nav>
+
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false" aria-controls="navbar">
+            <!-- <span class="sr-only">Toggle navigation</span> -->
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">WordSiv App</a>
         </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href={{url_for('index')}}> Home <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href={{url_for('search_story')}}>Search</a></li>
+            <li><a href={{url_for('topic_model')}}>Topic</a></li>
+            <li><a href={{url_for('lda')}}>Graph</a></li>
+            <li><a href={{url_for('slide')}}>Slide</a></li>
+            <li><a href={{url_for('channel')}}>Channel</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
       </div>
     </nav>
 
@@ -53,26 +74,45 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href={{url_for('index')}}>Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href={{url_for('search_story')}}>Search Stories</a></li>
+            <li class=""><a href={{url_for('index')}}>Overview <span class="sr-only">(current)</span></a></li>
+            <li class = 'active'><a href={{url_for('search_story')}}>Search Stories<span class="sr-only">(current)</span> </a></li>
             <li><a href={{url_for('topic_model')}}>Topic Analysis</a></li>
-            <li><a href="#">Channel</a></li>
+            <li><a href={{url_for('lda')}}>Graphs</a></li>
+            <li><a href={{url_for('slide')}}>Slide</a></li>
+             <li><a target="_blank" href={{url_for('channel')}}>Youtube Channel</a></li>
           </ul>
         </div>
 
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <form action = "/output" method="GET">
-            <h3 class = "sub-header"> What topics are you interested in? </h3>
-            <h3>
+        <div class="col-lg-9 col-lg-offset-2 col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
+          <h2>Search Stories</h2> 
+          <form action = '/output' mehtod = 'GET'>
+            <div class="form-group">
+             <label for="exampleInputEmail1">Keywords</label>
+              <input type="text" class="form-control" name='keywords' aria-describedby="emailHelp" placeholder="e.g. school">
+              <small id="emailHelp" class="form-text text-muted">You may also enter phrases or sentences freely.</small>
+            </div>
+            <div class="form-group">
+            <label for="exampleInputPassword1">Numbers</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="e.g. 10" name = "numbers">
+            <small id="emailHelp" class="form-text text-muted">Enter number of stories you would like to read.</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+
+          <!--<form action = "/output" method="GET">
+
+            <h3 class = "sub-header"> What topics are you interested in?</h3>
+
            <input type="text" name="keywords" placeholder="e.g. school, friend, etc">
            <h3 class = "sub-header"> How many stories would you like to see? </h3>
             <h3>
            <input type="text" name="numbers" placeholder="e.g. 5, 10, ..."> 
-           <input type="submit" value = "Submit">
-           </h3>
-          </form>
+           <input type="submit" value = "Submit"> 
+           </h3> 
+          </form> -->
 
-        </div>
+        </div> 
+
       </div>
     </div>
 
@@ -89,5 +129,6 @@
     <script src="../../assets/js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   </body>
 </html>

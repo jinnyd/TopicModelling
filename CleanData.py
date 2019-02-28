@@ -62,4 +62,4 @@ data = data[idx]
 data_clean = data[['filename', 'text']].copy()
 
 #Create the data_clean.csv file
-data_clean.to_csv('data_clean.csv')
+data_clean.to_csv('data_clean_long.csv')

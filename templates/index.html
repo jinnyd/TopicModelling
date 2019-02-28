@@ -13,6 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!--
@@ -34,18 +35,39 @@
   </head>
 
   <body>
+    <!-- place at the bottom of the page -->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="footer-copyright text-center">
+          <a>&copy; Xiaojin Dong, Insight, Jan. 2019, NYC</a>
+          </div>
+    </nav>
+
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false" aria-controls="navbar">
+            <!-- <span class="sr-only">Toggle navigation</span> -->
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">WordSiv App</a>
         </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href={{url_for('index')}}> Home <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href={{url_for('search_story')}}>Search</a></li>
+            <li><a href={{url_for('topic_model')}}>Topic</a></li>
+            <li><a href={{url_for('lda')}}>Graph</a></li>
+            <li><a href={{url_for('slide')}}>Slide</a></li>
+            <li><a href={{url_for('channel')}}>Channel</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
       </div>
     </nav>
 
@@ -56,50 +78,31 @@
             <li class="active"><a href={{url_for('index')}}>Overview <span class="sr-only">(current)</span></a></li>
             <li><a href={{url_for('search_story')}}>Search Stories</a></li>
             <li><a href={{url_for('topic_model')}}>Topic Analysis</a></li>
-            <li><a href={{url_for('hello')}}>Channel</a></li>
+            <li><a href={{url_for('lda')}}>Graphs</a></li>
+            <li><a href={{url_for('slide')}}>Slide</a></li>
+            <li><a target="_blank" href={{url_for('channel')}}>Youtube Channel</a></li>
           </ul>
         </div>
 
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Story Booth</h1>
+        <div class="col-lg-9 col-lg-offset-2 col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main ">
+           <section class="jumbotron text-center">
+    <div class="container" style = "width: 800px;">
+      <h1 class="jumbotron-heading">WordSiv Application</h1>
+      <p class = "text-left lead text-muted">
+      WordSiv app is developed to help the management of StoryBooth make more efficient editorial decisions and discover the potential interesting subjects when marketing to young people. Editors can search stories at the content level by entering keywords, phrases, or sentences. They can also browse the stories by topics. </p>
+      <p></p>
+      <p>
+        <a target = "_blank" href={{url_for('company')}} class="btn btn-primary my-2">Go to StoryBooth.com</a>
 
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="https://storybooth.com/wp-content/themes/storybooth/assets/img/avatar-1-1.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <span class="text-muted" style="color:blue"><h1>Get</h1></span> 
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="https://storybooth.com/wp-content/themes/storybooth/assets/img/avatar-1-2.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <span class="text-muted" style="color:orange"><h1>Your</h1></span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="https://storybooth.com/wp-content/themes/storybooth/assets/img/avatar-1-3.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-      
-              <span class="text-muted" style="color:green"><h1>Real</h1></span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="https://storybooth.com/wp-content/themes/storybooth/assets/img/avatar-1-4.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-          
-              <span class="text-muted" style="color:red"><h1>Story</h1></span>
-            </div>
-
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="https://storybooth.com/wp-content/themes/storybooth/assets/img/avatar-1-5.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-          
-              <span class="text-muted" style="color:magenta"><h1>Animated</h1></span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="https://storybooth.com/wp-content/themes/storybooth/assets/img/avatar-1-4.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-          
-              <span class="text-muted" style="color:red"><h1>!</h1></span>
-            </div>
-          </div>
-          
+        <a target = "_blank" href={{url_for('channel')}} class="btn btn-primary my-2">Go to StoryBooth Youtube Channel</a>
+      </p>
+    </div>
+  </section> 
+  
         </div>
+
       </div>
     </div>
-
-
 
 
     <!-- Bootstrap core JavaScript
@@ -112,5 +115,6 @@
     <script src="../../assets/js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   </body>
 </html>
